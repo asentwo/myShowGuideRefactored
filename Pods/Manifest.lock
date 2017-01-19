@@ -1,0 +1,26 @@
+PODS:
+  - Backendless-ios-SDK (3.0.44)
+  - EXTView (0.1.0)
+  - IQKeyboardManagerSwift (4.0.8)
+  - JSSAlertView (3.0.4)
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
+
+DEPENDENCIES:
+  - Backendless-ios-SDK
+  - EXTView
+  - IQKeyboardManagerSwift
+  - JSSAlertView
+  - SDWebImage (~> 3.7.5)
+
+SPEC CHECKSUMS:
+  Backendless-ios-SDK: 4f7bec980154a9371ad9ba7edbf53e02b33a76e3
+  EXTView: db5ded8520d2023cadb1b9225fb1ad9406064f04
+  IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
+  JSSAlertView: 7d8345c88e6fd8b515bc49f0fc8d8c69f6776b9c
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+
+PODFILE CHECKSUM: 5f8a000a134d856b1abf6385c73352f3f44763f1
+
+COCOAPODS: 1.2.0.beta.1
