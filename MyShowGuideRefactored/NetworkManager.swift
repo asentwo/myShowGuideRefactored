@@ -54,22 +54,21 @@ class NetworkManager: NSObject {
   }
   
   
-//  func parseJSONFromData(_ jsonData: Data?) -> [String : AnyObject]?
-//  {
-//    if let data = jsonData {
-//      
-//      do {
-//        let jsonDictionary = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String : AnyObject]//Parses data into a dictionary
-//        
-//        
-//        return jsonDictionary
-//        
-//      } catch let error as NSError {
-//        print("error processing json data: \(error.localizedDescription)")
-//      }
-//    }
-//    
-//    return nil
-//  }
+  func parseJSONFromData(_ jsonData: Data?) -> [String : AnyObject]?
+  {
+    if let data = jsonData {
+      
+      do {
+        let jsonDictionary = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String : AnyObject]//Parses data into a dictionary
+        
+        return jsonDictionary
+        
+      } catch let error as NSError {
+        print("error processing json data: \(error.localizedDescription)")
+      }
+    }
+    
+    return nil
+  }
   
 }

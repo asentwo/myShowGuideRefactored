@@ -51,97 +51,129 @@ class DetailTvTableViewController: UITableViewController, UITextViewDelegate {
     
     self.navigationController!.navigationBar.tintColor = UIColor.white
     
-    nm.getJSONData(urlExtension: "show/\(showToDetailSite)", completion: {
-    data in
+    
+    DispatchQueue.main.async {
       
-      DispatchQueue.main.async{
-      self.updateDetailShowInfo(data)
-      }
-      print("\(self.showToDetailSite)/clips/all/0/25/all/all/true")
+    DetailShowInfo.updateAllDetails(urlExtension: "show/\(self.showToDetailSite)/clips/all/0/25/all/all/true", completionHandler: { details in
       
-      self.nm.getJSONData(urlExtension: "show/\(self.showToDetailSite)/clips/all/0/25/all/all/true", completion: {
-      data in
-       
-        DispatchQueue.main.async{
-        self.updateVideo(data)
-        }
-      })
+      self.bannerArray.append(details[0].banner!)
+      self.overViewArray.append(details[0].overview!)
+     
+      let justDetails = JustDetailsShowInfo.init(firstAired: details[0].firstAired!, network: details[0].network!, rating: details[0].rating!)
+      self.detailsArray.append(justDetails)
       
+      let artPics = ArtInfo.init(poster: details[0].poster, artwork: details[0].artwork, fanart: details[0].fanart)
+      self.photosArray.append(String(describing: artPics.poster))
+      self.photosArray.append(String(describing: artPics.artwork))
+      self.photosArray.append(String(describing: artPics.fanart))
+      
+      let socialStuff = SocialInfo.init(facebook: details[0].facebook, twitter: details[0].twitter)
+      self.socialArray.append(socialStuff)
+      
+      let exploreMore = ExploreInfo.init(metacritic: details[0].metacritic, imdbID: details[0].imdbID, wiki: details[0].wiki, id: details[0].id)
+      self.exploreArray.append(exploreMore)
+      
+      self.totalResultsArray.append(self.bannerArray as AnyObject)
+      self.totalResultsArray.append(self.overViewArray as AnyObject)
+      self.totalResultsArray.append(self.detailsArray as AnyObject)
+      self.totalResultsArray.append(self.photosArray as AnyObject)
+      self.totalResultsArray.append(self.socialArray as AnyObject)
+      self.totalResultsArray.append(self.exploreArray as AnyObject)
     })
+    }
+    
+    
+//    nm.getJSONData(urlExtension: "show/\(showToDetailSite)", completion: {
+//    data in
+//      
+//      DispatchQueue.main.async{
+//      self.updateDetailShowInfo(data)
+//      }
+//      print("\(self.showToDetailSite)/clips/all/0/25/all/all/true")
+//      
+//      self.nm.getJSONData(urlExtension: "show/\(self.showToDetailSite)/clips/all/0/25/all/all/true", completion: {
+//      data in
+//       
+//        DispatchQueue.main.async{
+//        self.updateVideo(data)
+//        }
+//      })
+//      
+//    })
   }
   
   //MARK: JSON
   
-  func updateDetailShowInfo (_ data: Data!) {
-    do {
-      let jsonResult = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String:AnyObject]
-      
-      let banner = jsonResult["banner"] as? String ?? ""
-      let overview = jsonResult["overview"] as? String ?? "N/A"
-      let firstAired = jsonResult["first_aired"] as? String ?? "N/A"
-      let network = jsonResult["network"] as? String ?? "N/A"
-      let rating = jsonResult["rating"] as? String ?? "N/A"
-      
-      let showInfo = JustDetailsShowInfo(firstAired: firstAired, network: network, rating: rating)
-      detailsArray.append(showInfo)
-      bannerArray.append(banner)
-      overViewArray.append(overview)
-      totalResultsArray.append(detailsArray as AnyObject)
-      totalResultsArray.append(bannerArray as AnyObject)
-      totalResultsArray.append(overViewArray as AnyObject)
-      
-      if let castArray = jsonResult["cast"] as? [NSDictionary] {
-        for castItem in castArray {
-          let name = castItem["name"] as? String ?? "N/A"
-          let characterName = castItem["character_name"] as? String ?? "N/A"
-          let castInfo = CastInfo(name: name, characterName: characterName)
-          castLocalArray.append(castInfo)
-        }
-      }
-      totalResultsArray.append(castLocalArray as AnyObject)
-      
-      let poster = jsonResult["poster"] as? String ?? "N/A"
-      let artwork = jsonResult["artwork_608x342"] as? String ?? "N/A"
-      let fanart = jsonResult["fanart"] as? String ?? "N/A"
-      
-      photosArray.append(poster)
-      photosArray.append(fanart)
-      photosArray.append(artwork)
-      totalResultsArray.append(photosArray as AnyObject)
-      
-      if let channels = jsonResult["channels"] as? [[String:AnyObject]], !channels.isEmpty {
-        let channel = channels[0] // now the compiler knows it's [String:AnyObject]
-        let social = channel["social"] as? NSDictionary
-        let facebookDict = social!["facebook"] as? [String:AnyObject]
-        let facebook = nullToNil(facebookDict!["link"]) as? String ?? "N/A"
-        let twitterDict = social!["twitter"] as? [String:AnyObject]
-        let twitter = nullToNil(twitterDict!["link"]) as? String ?? "N/A"
-        
-        let socialInfo = SocialInfo(facebook: facebook, twitter: twitter)
-        socialArray.append(socialInfo)
-        totalResultsArray.append(socialArray as AnyObject)
-      }
-      
-      let metacritic = nullToNil(jsonResult["metacritic"]) as? String
-      let imdbID = nullToNil(jsonResult["imdb_id"]) as? String
-      let wiki = nullToNil(jsonResult["wikipedia_id"]) as? NSNumber
-      let id = nullToNil(jsonResult["id"]) as? NSNumber
-      
-      let exploreInfo = ExploreInfo(metacritic: metacritic, imdbID: imdbID, wiki: wiki, id: id)
-      exploreArray.append(exploreInfo)
-      totalResultsArray.append(exploreArray as AnyObject)
-    }
-    catch {
-      JSSAlertView().show(
-        self,
-        title: NSLocalizedString("Whoops?", comment: ""),
-        text: NSLocalizedString( "There was a connection error. Please try again.", comment: ""),
-        buttonText: "Ok",
-        iconImage: MyShowGuideRefactoredLogo)
-      
-    }
-  }
-  
+//  func updateDetailShowInfo (_ data: Data!) {
+//    do {
+//      let jsonResult = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String:AnyObject]
+//      
+//      let banner = jsonResult["banner"] as? String ?? ""
+//      let overview = jsonResult["overview"] as? String ?? "N/A"
+//      let firstAired = jsonResult["first_aired"] as? String ?? "N/A"
+//      let network = jsonResult["network"] as? String ?? "N/A"
+//      let rating = jsonResult["rating"] as? String ?? "N/A"
+//      
+//      let showInfo = JustDetailsShowInfo(firstAired: firstAired, network: network, rating: rating)
+//      detailsArray.append(showInfo)
+//      bannerArray.append(banner)
+//      overViewArray.append(overview)
+//      totalResultsArray.append(detailsArray as AnyObject)
+//      totalResultsArray.append(bannerArray as AnyObject)
+//      totalResultsArray.append(overViewArray as AnyObject)
+//      
+//      if let castArray = jsonResult["cast"] as? [NSDictionary] {
+//        for castItem in castArray {
+//          let name = castItem["name"] as? String ?? "N/A"
+//          let characterName = castItem["character_name"] as? String ?? "N/A"
+//          let castInfo = CastInfo(name: name, characterName: characterName)
+//          castLocalArray.append(castInfo)
+//        }
+//      }
+//      totalResultsArray.append(castLocalArray as AnyObject)
+//      
+//      let poster = jsonResult["poster"] as? String ?? "N/A"
+//      let artwork = jsonResult["artwork_608x342"] as? String ?? "N/A"
+//      let fanart = jsonResult["fanart"] as? String ?? "N/A"
+//      
+//      photosArray.append(poster)
+//      photosArray.append(fanart)
+//      photosArray.append(artwork)
+//      totalResultsArray.append(photosArray as AnyObject)
+//      
+//      if let channels = jsonResult["channels"] as? [[String:AnyObject]], !channels.isEmpty {
+//        let channel = channels[0] // now the compiler knows it's [String:AnyObject]
+//        let social = channel["social"] as? NSDictionary
+//        let facebookDict = social!["facebook"] as? [String:AnyObject]
+//        let facebook = nullToNil(facebookDict!["link"]) as? String ?? "N/A"
+//        let twitterDict = social!["twitter"] as? [String:AnyObject]
+//        let twitter = nullToNil(twitterDict!["link"]) as? String ?? "N/A"
+//        
+//        let socialInfo = SocialInfo(facebook: facebook, twitter: twitter)
+//        socialArray.append(socialInfo)
+//        totalResultsArray.append(socialArray as AnyObject)
+//      }
+//      
+//      let metacritic = nullToNil(jsonResult["metacritic"]) as? String
+//      let imdbID = nullToNil(jsonResult["imdb_id"]) as? String
+//      let wiki = nullToNil(jsonResult["wikipedia_id"]) as? NSNumber
+//      let id = nullToNil(jsonResult["id"]) as? NSNumber
+//      
+//      let exploreInfo = ExploreInfo(metacritic: metacritic, imdbID: imdbID, wiki: wiki, id: id)
+//      exploreArray.append(exploreInfo)
+//      totalResultsArray.append(exploreArray as AnyObject)
+//    }
+//    catch {
+//      JSSAlertView().show(
+//        self,
+//        title: NSLocalizedString("Whoops?", comment: ""),
+//        text: NSLocalizedString( "There was a connection error. Please try again.", comment: ""),
+//        buttonText: "Ok",
+//        iconImage: MyShowGuideRefactoredLogo)
+//      
+//    }
+//  }
+//  
 
   
   func updateVideo (_ data: Data!) {
