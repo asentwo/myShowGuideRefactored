@@ -97,7 +97,7 @@ class ShowViewController: UIViewController, UITableViewDataSource, UITableViewDe
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
+    print(showArray.count)
     if self.searchBarActive {
       self.navigationItem.setHidesBackButton(true, animated:true)
       return filteredShowSearchResults.count
@@ -150,6 +150,8 @@ class ShowViewController: UIViewController, UITableViewDataSource, UITableViewDe
           let poster = data["artwork_608x342"] as! String
           let id = data["id"] as! NSNumber
           
+          print(poster)
+          
           let info = TvShowInfo(poster: poster, title: title, id: id)
           showArray.append(info)
           self.postersShown = [Bool](repeating: false, count: showArray.count)
@@ -165,6 +167,7 @@ class ShowViewController: UIViewController, UITableViewDataSource, UITableViewDe
         buttonText: "Ok",
         iconImage: MyShowGuideRefactoredLogo)
     }
+    print(showArray.count)
     tvShowTableView.reloadData()
   }
   

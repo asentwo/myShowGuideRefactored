@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gdZ-0D-mSm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gdZ-0D-mSm">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1530,7 +1530,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MyShowGuideRefactoredBlur" translatesAutoresizingMaskIntoConstraints="NO" id="9E9-94-MGI">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myShowGuideBlur" translatesAutoresizingMaskIntoConstraints="NO" id="9E9-94-MGI">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Blur Black" translatesAutoresizingMaskIntoConstraints="NO" id="bW7-MV-HX2">
@@ -2003,9 +2003,9 @@
         <image name="Blur Black" width="853" height="533"/>
         <image name="Facebookicon" width="166" height="166"/>
         <image name="Metacriticicon" width="666" height="666"/>
-        <image name="MyShowGuideRefactoredBlur" width="187" height="283"/>
         <image name="blur_5.5" width="414" height="736"/>
         <image name="imdbicon" width="640" height="640"/>
+        <image name="myShowGuideBlur" width="187" height="283"/>
         <image name="save_icon_redX" width="30" height="30"/>
         <image name="save_icon_white" width="30" height="30"/>
         <image name="tv-on-512x512" width="512" height="512"/>

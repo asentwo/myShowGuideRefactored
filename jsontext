@@ -1,149 +1,174 @@
-134-1230724026-5923248175-1338443319-600x855.jpg, "tvdb": 78901, "social": {
-facebook =     {
-"facebook_id" = 9991232322;
-link = "https://www.facebook.com/Supernatural";
-};
-twitter =     {
-link = "https://twitter.com/cw_spn";
-"twitter_id" = 1205974434;
-};
-}, "type": television, "artwork_448x252": http://static-api.guidebox.com/060515/thumbnails_large/134-9313713549-448x252-show-thumbnail.jpg, "first_aired": 2005-09-13, "artwork_304x171": http://static-api.guidebox.com/060515/thumbnails_medium/134-3621342373-304x171-show-thumbnail.jpg, "overview": Two brothers follow their father's footsteps as "hunters" fighting evil supernatural beings of many kinds including monsters, demons, and gods that roam the earth., "tags": <__NSArrayM 0x61800004db90>(
 {
-id = 602;
-tag = "reference to god";
+id: 950,
+title: "The Big Bang Theory",
+alternate_titles: [ ],
+status: "Continuing",
+type: "television",
+container_show: 0,
+first_aired: "2007-09-24",
+network: "CBS",
+channels: [
+{
+id: 3,
+name: "CBS",
+short_name: "cbs",
+channel_type: "television",
+artwork_208x117: "http://static-api.guidebox.com/041014/thumbnails_small/3-2487872262-208x117-channel.jpg",
+artwork_304x171: "http://static-api.guidebox.com/041014/thumbnails_medium/3-9571565720-304x171-channel.jpg",
+artwork_448x252: "http://static-api.guidebox.com/041014/thumbnails_large/3-8629465820-448x252-channel.jpg",
+artwork_608x342: "http://static-api.guidebox.com/041014/thumbnails_xlarge/3-8213735870-608x342-channel.jpg",
+external_ids: {
+imdb: "co0070627",
+wikipedia_id: 37653
 },
-{
-id = 274;
-tag = "fighting supernatural";
+social: {
+facebook: {
+facebook_id: 47360808996,
+link: "https://www.facebook.com/CBS"
 },
-{
-id = 1445;
-tag = demon;
-},
-{
-id = 684;
-tag = paranormal;
-},
-{
-id = 1192;
-tag = exorcism;
-},
-{
-id = 252;
-tag = supernatural;
-},
-{
-id = 341;
-tag = monsters;
-},
-{
-id = 111;
-tag = ghosts;
-},
-{
-id = 384;
-tag = angels;
-},
-{
-id = 474;
-tag = vampire;
-},
-{
-id = 619;
-tag = monster;
-},
-{
-id = 6400;
-tag = "missing father";
-},
-{
-id = 4670;
-tag = "year 1983";
+twitter: {
+twitter_id: 97739866,
+link: "https://twitter.com/CBS"
 }
-)
-, "id": 134, "imdb_id": tt0460681, "wikipedia_id": 2170969, "tv_com": http://www.tv.com/shows/supernatural/, "fanart": http://static-api.guidebox.com/041014/fanart/134-0-0-0-82314554728-147934732316-13745995564-tv.jpg, "title": Supernatural, "url": http://www.guidebox.com/#!CW/134-Supernatural/full-episodes, "cast": <__NSArrayM 0x61800004f240>(
-{
-"character_name" = "Sam Winchester";
-id = 459163;
-name = "Jared Padalecki";
 },
+live_stream: {
+web: [
 {
-"character_name" = "Dean Winchester";
-id = 513669;
-name = "Jensen Ackles";
-},
-{
-"character_name" = "Mary Winchester";
-id = 491888;
-name = "Samantha Smith";
-},
-{
-"character_name" = Castiel;
-id = 326788;
-name = "Misha Collins";
-},
-{
-"character_name" = Crowley;
-id = 419596;
-name = "Mark Sheppard";
+source: "cbs_all_access",
+display_name: "CBS All Access",
+type: "subscription",
+link: "http://www.cbs.com/live-tv/",
+link_type: "web"
 }
-)
-, "genres": <__NSArrayM 0x61800004f4b0>(
-{
-id = 9;
-title = Drama;
+],
+ios: [ ],
+android: [ ]
 },
-{
-id = 11;
-title = Fantasy;
-},
-{
-id = 15;
-title = Horror;
-},
-{
-id = 17;
-title = Mystery;
+is_primary: 1
 }
-)
-, "alternate_titles": <__NSArrayM 0x61800004ff60>(
-
-)
-, "metacritic": http://www.metacritic.com/tv/supernatural, "banner": http://static-api.guidebox.com/041014/banner/134-0-0-0-208971049621-67647333088-249246960-tv.jpg, "rating": TV-14, "freebase": /m/06s3sm, "status": Continuing, "runtime": 60, "tvrage": {
-link = "http://www.tvrage.com/shows/id-5410";
-"tvrage_id" = 5410;
-}, "channels": <__NSArrayM 0x61800004fde0>(
+],
+runtime: 30,
+genres: [
 {
-"artwork_208x117" = "http://static-api.guidebox.com/041014/thumbnails_small/6-9286287045-208x117-channel.jpg";
-"artwork_304x171" = "http://static-api.guidebox.com/041014/thumbnails_medium/6-725774309-304x171-channel.jpg";
-"artwork_448x252" = "http://static-api.guidebox.com/041014/thumbnails_large/6-1180412649-448x252-channel.jpg";
-"artwork_608x342" = "http://static-api.guidebox.com/041014/thumbnails_xlarge/6-8922163504-608x342-channel.jpg";
-"channel_type" = television;
-"external_ids" =     {
-imdb = co0174148;
-"wikipedia_id" = 3831118;
-};
-id = 6;
-"is_primary" = 1;
-"live_stream" =     {
-android =         (
-);
-ios =         (
-);
-web =         (
-);
-};
-name = CW;
-"short_name" = cw;
-social =     {
-facebook =         {
-"facebook_id" = 8062362435;
-link = "https://www.facebook.com/TheCW";
-};
-twitter =         {
-link = "https://twitter.com/CW_network";
-"twitter_id" = 22083910;
-};
-};
+id: 6,
+title: "Comedy"
 }
-)
+],
+tags: [
+{
+id: 549,
+tag: "scientist"
+},
+{
+id: 934,
+tag: "nerds"
+},
+{
+id: 763,
+tag: "science"
+},
+{
+id: 574,
+tag: "friends"
+},
+{
+id: 935,
+tag: "comic"
+},
+{
+id: 54,
+tag: "sitcom"
+},
+{
+id: 823,
+tag: "apartment"
+},
+{
+id: 2961,
+tag: "physicist"
+},
+{
+id: 2678,
+tag: "friend"
+},
+{
+id: 6535,
+tag: "mechanical engineer"
+},
+{
+id: 179,
+tag: "roommate"
+}
+],
+cast: [
+{
+id: 105644,
+name: "Johnny Galecki",
+character_name: "Leonard Hofstadter"
+},
+{
+id: 544671,
+name: "Jim Parsons",
+character_name: "Sheldon Cooper"
+},
+{
+id: 459213,
+name: "Kaley Cuoco",
+character_name: "Penny"
+},
+{
+id: 410820,
+name: "Simon Helberg",
+character_name: "Howard Wolowitz"
+},
+{
+id: 645719,
+name: "Kunal Nayyar",
+character_name: "Rajesh Koothrappali"
+},
+{
+id: 99072,
+name: "Mayim Bialik",
+character_name: "Amy Farrah Fowler"
+},
+{
+id: 311851,
+name: "Melissa Rauch",
+character_name: "Bernadette Rostenkowski"
+}
+],
+overview: "What happens when hyperintelligent roommates Sheldon and Leonard meet Penny, a free-spirited beauty moving in next door, and realize they know next to nothing about life outside of the lab. Rounding out the crew are the smarmy Wolowitz, who thinks he's as sexy as he is brainy, and Koothrappali, who suffers from an inability to speak in the presence of a woman.",
+air_day_of_week: "Thursday",
+air_time: "8:00 PM",
+rating: "TV-PG",
+imdb_id: "tt0898266",
+tvdb: 80379,
+themoviedb: 1418,
+freebase: "/m/02r5qtm",
+tv_com: "http://www.tv.com/shows/the-big-bang-theory/",
+metacritic: "http://www.metacritic.com/tv/the-big-bang-theory",
+common_sense_media: "https://www.commonsensemedia.org/tv-reviews/the-big-bang-theory",
+wikipedia_id: 11269605,
+tvrage: {
+tvrage_id: 8511,
+link: "http://www.tvrage.com/shows/id-8511"
+},
+social: {
+facebook: {
+facebook_id: 22934684677,
+link: "https://www.facebook.com/TheBigBangTheory"
+},
+twitter: {
+twitter_id: 72644483,
+link: "https://twitter.com/BigBang_CBS"
+}
+},
+fanart: "http://static-api.guidebox.com/041014/fanart/950-0-0-0-191705189038-32654834804-10020896962-tv.jpg",
+poster: "http://static-api.guidebox.com/012915/shows/posters/950--4294629162-6013532556-8206823743-600x855.jpg",
+banner: "http://static-api.guidebox.com/041014/banner/950-0-0-0-11392128672-105780104111-26732218686-tv.jpg",
+artwork_208x117: "http://static-api.guidebox.com/091414/thumbnails_small/950-6941432897-208x117-title-card.jpg",
+artwork_304x171: "http://static-api.guidebox.com/091414/thumbnails_medium/950-808620337-304x171-title-card.jpg",
+artwork_448x252: "http://static-api.guidebox.com/091414/thumbnails_large/950-6735643046-448x252-title-card.jpg",
+artwork_608x342: "http://static-api.guidebox.com/091414/thumbnails_xlarge/950-2938209991-608x342-title-card.jpg",
+url: "http://demo.guidebox.com/#!CBS/950-The-Big-Bang-Theory/full-episodes"
+}
