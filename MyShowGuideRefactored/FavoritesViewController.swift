@@ -165,7 +165,7 @@ class FavoritesViewController: UITableViewController {
       //make local array = universal saved show array
         favoriteShowsArray = savedFavoriteArray
       
-      //determine which sho to remove
+      //determine which show to remove
         showToRemove = favoriteShowsArray[indexPath.row]
       
       // remove show from backendless

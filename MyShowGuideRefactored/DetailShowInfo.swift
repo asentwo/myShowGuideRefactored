@@ -19,6 +19,7 @@ import Foundation
 
 class DetailShowInfo {
   
+  var title : String
   var banner : String
   var overview : String
   var firstAired : String
@@ -26,8 +27,9 @@ class DetailShowInfo {
   var rating : String
   
   
-  init (banner: String, overview: String,firstAired: String, network: String,rating: String)
+  init (title: String, banner: String, overview: String,firstAired: String, network: String,rating: String)
   {
+    self.title = title
     self.banner = banner
     self.overview = overview
     self.firstAired = firstAired

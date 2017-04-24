@@ -33,10 +33,19 @@ class ChannelViewController: UIViewController, UISearchBarDelegate, UICollection
     
      self.channelArray = channels
     
+      if self.channelArray.count == 0 {
+        JSSAlertView().show(
+          self,
+          title: NSLocalizedString("Whoops?", comment: ""),
+          text: NSLocalizedString( "There was a connection error. Please try again.", comment: ""),
+          buttonText: "Ok",
+          iconImage: MyShowGuideRefactoredLogo)
+        
+      } else {
     DispatchQueue.main.async {
         self.channelCollectionView.reloadData()
     }
-  
+      }
     })
     
     
@@ -137,38 +146,7 @@ class ChannelViewController: UIViewController, UISearchBarDelegate, UICollection
   }
   
   
-  //MARK: JSON Parsing
 
-//  func updateJSON (_ data: Data!) {
-//    do {
-//      let showData = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as!
-//      NSDictionary
-//      
-//     // print(showData)
-//      
-//      let results = showData["results"] as! [NSDictionary]?
-//      if let showDataArray = results {
-//        for data in showDataArray {
-//          let logo = data["artwork_608x342"] as? String
-//          let channelName = data["name"] as? String
-//          let id = data["id"] as? NSNumber
-//          let info = ChannelInfo(logo: logo!, channelName: channelName!, id: id!)
-//          channelArray.append(info)
-//          self.logosShown = [Bool](repeating: false, count: channelArray.count)
-//        }
-//      }
-//    } catch {
-//      let alertAction = JSSAlertView().show(
-//        self,
-//        title: NSLocalizedString("Whoops?", comment: ""),
-//        text: NSLocalizedString("There was a connection error. Please restart app.", comment: ""),
-//        buttonText: "Ok",
-//        iconImage: MyShowGuideRefactoredLogo)
-//      alertAction.addAction(self.exitOutOfApp)
-//
-//    }
-//    channelCollectionView.reloadData()
-//  }
   
   // MARK: Animation
   

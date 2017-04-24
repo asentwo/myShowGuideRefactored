@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import JSSAlertView
 
 
 class NetworkManager: NSObject {
@@ -70,4 +70,36 @@ class NetworkManager: NSObject {
     return nil
   }
   
+  //In App purchases
+  func connectToItunes (searchTerm: String, completion: @escaping JSONData) {
+    
+    let request = URLRequest(url: URL(string:"https://itunes.apple.com/search?term=\(searchTerm)&at=1001lmK9")! )
+    
+    // print(request)
+    
+    let dataTask = session.dataTask(with: request, completionHandler: { (data, response, error) in
+      
+      if error == nil {
+        if let httpResponse = response as? HTTPURLResponse {
+          switch (httpResponse.statusCode) {
+          case 200:
+            if let data = data {
+              completion(data)
+            }
+          default:
+            print(httpResponse.statusCode)
+          }
+        }
+      } else {
+        
+        DispatchQueue.main.async {
+          
+          if let error = error {
+           print("There was an error connecting to itunes") }
+          return
+        }
+      }
+    })
+    dataTask.resume()
+  }
 }

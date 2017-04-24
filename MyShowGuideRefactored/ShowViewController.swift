@@ -115,15 +115,15 @@ class ShowViewController: UIViewController, UITableViewDataSource, UITableViewDe
   }
   
   func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-    if self.searchBarActive {
-      return indexPath
-    } else {
-      if indexPath.row == 0 {
-        return nil
-      } else {
+//    if self.searchBarActive {
+//      return indexPath
+//    } else {
+//      if indexPath.row == 0 {
+//        return nil
+//      } else {
         return indexPath
-      }
-    }
+//      }
+//    }
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

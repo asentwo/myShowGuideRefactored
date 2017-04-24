@@ -22,7 +22,7 @@ class DetailTvTableViewController: UITableViewController, UITextViewDelegate {
   var spinnerActive = false
   var showToDetailSite: NSNumber = 0
   var totalResultsArray: [AnyObject] = []
-  
+  var currentShowTitle : String?
   
   @IBOutlet var DetailTvTableView: UITableView!
   
@@ -52,48 +52,13 @@ class DetailTvTableViewController: UITableViewController, UITextViewDelegate {
     self.navigationController!.navigationBar.tintColor = UIColor.white
     
     
-//    DispatchQueue.main.async {
-//      
-//    DetailShowInfo.updateAllDetails(urlExtension: "show/\(self.showToDetailSite)", completionHandler: { details in
-//      
-//      self.bannerArray.append(details[0].banner)
-//      self.overViewArray.append(details[0].overview)
-//     
-//      let justDetails = JustDetailsShowInfo.init(firstAired: details[0].firstAired, network: details[0].network, rating: details[0].rating)
-//      self.detailsArray.append(justDetails)
-//      
-//      let artPics = ArtInfo.init(poster: details[0].poster, artwork: details[0].artwork, fanart: details[0].fanart)
-//      self.photosArray.append(String(describing: artPics.poster))
-//      self.photosArray.append(String(describing: artPics.artwork))
-//      self.photosArray.append(String(describing: artPics.fanart))
-//      
-//      let socialStuff = SocialInfo.init(facebook: details[0].facebook, twitter: details[0].twitter)
-//      self.socialArray.append(socialStuff)
-//      
-//      let exploreMore = ExploreInfo.init(metacritic: details[0].metacritic, imdbID: details[0].imdbID, wiki: details[0].wiki, id: details[0].id)
-//      self.exploreArray.append(exploreMore)
-//      
-//      self.totalResultsArray.append(self.bannerArray as AnyObject)
-//      self.totalResultsArray.append(self.overViewArray as AnyObject)
-//      self.totalResultsArray.append(self.detailsArray as AnyObject)
-//      self.totalResultsArray.append(self.photosArray as AnyObject)
-//      self.totalResultsArray.append(self.socialArray as AnyObject)
-//      self.totalResultsArray.append(self.exploreArray as AnyObject)
-//      
-//      DispatchQueue.main.async {
-//        self.DetailTvTableView.reloadData()
-//      }
-//    })
-//    }
-//    
-    
     nm.getJSONData(urlExtension: "show/\(showToDetailSite)", completion: {
     data in
       
       DispatchQueue.main.async{
       self.updateDetailShowInfo(data)
       }
-      print("\(self.showToDetailSite)/clips/all/0/25/all/all/true")
+     // print("\(self.showToDetailSite)/clips/all/0/25/all/all/true")
       
       self.nm.getJSONData(urlExtension: "show/\(self.showToDetailSite)/clips/all/0/25/all/all/true", completion: {
       data in
@@ -112,6 +77,9 @@ class DetailTvTableViewController: UITableViewController, UITextViewDelegate {
     do {
       let jsonResult = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String:AnyObject]
       
+      print(jsonResult)
+      
+      let title = jsonResult["title"] as? String
       let banner = jsonResult["banner"] as? String ?? ""
       let overview = jsonResult["overview"] as? String ?? "N/A"
       let firstAired = jsonResult["first_aired"] as? String ?? "N/A"
@@ -125,6 +93,10 @@ class DetailTvTableViewController: UITableViewController, UITextViewDelegate {
       totalResultsArray.append(detailsArray as AnyObject)
       totalResultsArray.append(bannerArray as AnyObject)
       totalResultsArray.append(overViewArray as AnyObject)
+     
+      if let showTitle = title?.replacingOccurrences(of: " ", with: "+").lowercased() {
+      self.currentShowTitle = showTitle
+      }
       
       if let castArray = jsonResult["cast"] as? [NSDictionary] {
         for castItem in castArray {
@@ -222,7 +194,7 @@ class DetailTvTableViewController: UITableViewController, UITextViewDelegate {
   //MARK: TableView
   
   override func numberOfSections(in tableView: UITableView) -> Int {
-    return totalResultsArray.count
+    return totalResultsArray.count + 1
   }
   
   override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -240,6 +212,7 @@ class DetailTvTableViewController: UITableViewController, UITextViewDelegate {
     case 5: return socialArray.count
     case 6: return exploreArray.count
     case 7: return min(1, photosArray.count)
+    case 8: return 1
       
     default: fatalError("Unknown Selection")
     }
@@ -344,6 +317,13 @@ class DetailTvTableViewController: UITableViewController, UITextViewDelegate {
       self.DetailTvTableView.rowHeight = 331
       return cell
       
+    case 8:
+      let cell = tableView.dequeueReusableCell(withIdentifier: "itunesCell", for: indexPath) as! ItunesCell
+      self.DetailTvTableView.rowHeight = 44
+      cell.selectionStyle = UITableViewCellSelectionStyle.none
+
+      return cell
+      
     default: _ = ""
     }
     return cell
@@ -355,6 +335,12 @@ class DetailTvTableViewController: UITableViewController, UITextViewDelegate {
     } else {
       return indexPath
     }
+  }
+  
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+  print("indexpath:\(indexPath.row)")
+    self.performSegue(withIdentifier: "itunesCell", sender: self)
   }
   
   
@@ -404,6 +390,10 @@ class DetailTvTableViewController: UITableViewController, UITextViewDelegate {
     } else if segue.identifier == "DetailToVideoSegue" {
       let videoViewController = segue.destination as! VideoViewController
       videoViewController.showToVideo = showToDetailSite
+    } else if segue.identifier == "detailToItunesSegue" {
+      let itunesVC = segue.destination as! ItunesCollectionViewController
+      itunesVC.itunesSearchTerm = self.currentShowTitle
+
     }
   }
   

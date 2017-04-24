@@ -1,5 +1,5 @@
 
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 
 
@@ -9,5 +9,6 @@ pod "EXTView"
 pod 'Backendless-ios-SDK'
 pod 'JSSAlertView'
 pod 'IQKeyboardManagerSwift'
+pod 'Gloss'
 
 end
