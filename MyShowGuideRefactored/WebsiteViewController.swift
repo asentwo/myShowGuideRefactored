@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import JSSAlertView
+import CDAlertView
 
 class WebsiteViewController: UIViewController, UIWebViewDelegate {
   
@@ -31,12 +31,7 @@ class WebsiteViewController: UIViewController, UIWebViewDelegate {
   
   func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
  
-     JSSAlertView().show(
-      self,
-      title: NSLocalizedString("Whoops?", comment: ""),
-      text: NSLocalizedString( "There was a connection error. Please try again.", comment: ""),
-      buttonText: "Ok",
-      iconImage: MyShowGuideRefactoredLogo)
+CDAlertView(title: NSLocalizedString("Whoops?", comment: ""), message: NSLocalizedString("There was a connection error!", comment: ""), type: .error).show()
 
   }
   
@@ -68,12 +63,7 @@ class WebsiteViewController: UIViewController, UIWebViewDelegate {
           SwiftSpinner.hide()
           self.spinnerActive = false
         //  self.showNetworkError()
-          JSSAlertView().show(
-            self,
-            title: NSLocalizedString("Whoops?", comment: ""),
-            text: NSLocalizedString( "There was a connection error. Please try again.", comment: ""),
-            buttonText: "Ok",
-            iconImage: MyShowGuideRefactoredLogo)
+       CDAlertView(title: NSLocalizedString("Whoops?", comment: ""), message: NSLocalizedString("There was a connection error!", comment: ""), type: .error).show()
         }
       }
     }) 

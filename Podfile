@@ -1,13 +1,13 @@
 
-platform :ios, '9.0'
+platform :ios, '10.0'
 use_frameworks!
 
 
 target 'MyShowGuideRefactored' do
-pod 'SDWebImage', '~>3.7.5'
+pod 'SDWebImage'
 pod "EXTView"
 pod 'Backendless-ios-SDK'
-pod 'JSSAlertView'
+pod 'CDAlertView'
 pod 'IQKeyboardManagerSwift'
 pod 'Gloss'
 

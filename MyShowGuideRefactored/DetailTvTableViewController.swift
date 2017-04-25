@@ -8,7 +8,7 @@
 
 
 import UIKit
-import JSSAlertView
+import CDAlertView
 
 
 class DetailTvTableViewController: UITableViewController, UITextViewDelegate {
@@ -77,7 +77,7 @@ class DetailTvTableViewController: UITableViewController, UITextViewDelegate {
     do {
       let jsonResult = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String:AnyObject]
       
-      print(jsonResult)
+    //  print(jsonResult)
       
       let title = jsonResult["title"] as? String
       let banner = jsonResult["banner"] as? String ?? ""
@@ -140,12 +140,7 @@ class DetailTvTableViewController: UITableViewController, UITextViewDelegate {
       totalResultsArray.append(exploreArray as AnyObject)
     }
     catch {
-      JSSAlertView().show(
-        self,
-        title: NSLocalizedString("Whoops?", comment: ""),
-        text: NSLocalizedString( "There was a connection error. Please try again.", comment: ""),
-        buttonText: "Ok",
-        iconImage: MyShowGuideRefactoredLogo)
+   CDAlertView(title: NSLocalizedString("Whoops?", comment: ""), message: NSLocalizedString("There was a connection error!", comment: ""), type: .error).show()
       
     }
   }
@@ -175,12 +170,7 @@ class DetailTvTableViewController: UITableViewController, UITextViewDelegate {
           SwiftSpinner.hide()
           self.spinnerActive = false
           
-          JSSAlertView().show(
-            self,
-            title: NSLocalizedString("Whoops?", comment: ""),
-            text: NSLocalizedString( "There was a connection error. Please try again.", comment: ""),
-            buttonText: "Ok",
-            iconImage: MyShowGuideRefactoredLogo)
+       CDAlertView(title: NSLocalizedString("Whoops?", comment: ""), message: NSLocalizedString("There was a connection error!", comment: ""), type: .error).show()
         }
       }
     }
@@ -321,6 +311,8 @@ class DetailTvTableViewController: UITableViewController, UITextViewDelegate {
       let cell = tableView.dequeueReusableCell(withIdentifier: "itunesCell", for: indexPath) as! ItunesCell
       self.DetailTvTableView.rowHeight = 44
       cell.selectionStyle = UITableViewCellSelectionStyle.none
+      DetailTvTableView.allowsSelection = true
+
 
       return cell
       
@@ -340,7 +332,7 @@ class DetailTvTableViewController: UITableViewController, UITextViewDelegate {
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
   print("indexpath:\(indexPath.row)")
-    self.performSegue(withIdentifier: "itunesCell", sender: self)
+    self.performSegue(withIdentifier: "detailToItunesSegue", sender: self)
   }
   
   

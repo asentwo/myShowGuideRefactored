@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import JSSAlertView
+import CDAlertView
 
 
 class ChannelViewController: UIViewController, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -34,12 +34,7 @@ class ChannelViewController: UIViewController, UISearchBarDelegate, UICollection
      self.channelArray = channels
     
       if self.channelArray.count == 0 {
-        JSSAlertView().show(
-          self,
-          title: NSLocalizedString("Whoops?", comment: ""),
-          text: NSLocalizedString( "There was a connection error. Please try again.", comment: ""),
-          buttonText: "Ok",
-          iconImage: MyShowGuideRefactoredLogo)
+CDAlertView(title: NSLocalizedString("Whoops?", comment: ""), message: NSLocalizedString("There was a connection error!", comment: ""), type: .error).show()
         
       } else {
     DispatchQueue.main.async {

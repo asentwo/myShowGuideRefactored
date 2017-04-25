@@ -134,7 +134,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" tableViewCell="8Xz-mS-8FX" id="KE4-rb-zDm">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="299.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="299.66666666666669"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vup-CO-NQG">
@@ -2129,11 +2129,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="   &gt;         " width="16" height="16"/>
+        <image name="   &gt;         " width="11" height="15"/>
         <image name="Blur Black" width="853" height="533"/>
         <image name="Facebookicon" width="166" height="166"/>
         <image name="Metacriticicon" width="666" height="666"/>
-        <image name="apple_logo_white" width="16" height="16"/>
+        <image name="apple_logo_white" width="81" height="99"/>
         <image name="blur_5.5" width="414" height="736"/>
         <image name="imdbicon" width="640" height="640"/>
         <image name="myShowGuideBlur" width="187" height="283"/>

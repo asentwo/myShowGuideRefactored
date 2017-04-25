@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import JSSAlertView
+import CDAlertView
 
 class SignUpViewController: UIViewController, UIViewControllerTransitioningDelegate {
   
@@ -64,12 +64,7 @@ class SignUpViewController: UIViewController, UIViewControllerTransitioningDeleg
     if passwordTextField.text != confirmPasswordTextField.text {
       SwiftSpinner.hide()
       
-      JSSAlertView().show(
-        self,
-        title: NSLocalizedString("Whoops?", comment: ""),
-        text: NSLocalizedString("Passwords don't match!", comment: ""),
-        buttonText: "Ok",
-        iconImage: MyShowGuideRefactoredLogo)
+CDAlertView(title: NSLocalizedString("Sorry", comment: ""), message: NSLocalizedString("Passwords don't match!", comment: ""), type: .error).show()
     } else {
     
     BackendlessUserFunctions.sharedInstance.backendlessUserRegister(emailTextField.text!,password: passwordTextField.text!,  rep: { ( user : BackendlessUser?) -> () in
@@ -82,13 +77,7 @@ class SignUpViewController: UIViewController, UIViewControllerTransitioningDeleg
             print("User logged in: \(user?.objectId)")
             
             SwiftSpinner.hide()
-            let alertView = JSSAlertView().show(
-              self,
-              title: NSLocalizedString("Success!", comment: ""),
-              text: NSLocalizedString("Account created!", comment: ""),
-              buttonText: "Ok",
-              iconImage: MyShowGuideRefactoredLogo)
-              alertView.addAction(self.alertViewSuccessAction)
+               CDAlertView(title:  NSLocalizedString("Success!", comment: ""), message:  NSLocalizedString("Account created!", comment: ""), type: .success).show()
           }
         },
         
@@ -124,12 +113,7 @@ class SignUpViewController: UIViewController, UIViewControllerTransitioningDeleg
         }
         
         SwiftSpinner.hide()
-          JSSAlertView().show(
-          self,
-          title: NSLocalizedString("Whoops?", comment: ""),
-          text: errorStatement,
-          buttonText: "Ok",
-          iconImage: MyShowGuideRefactoredLogo)
+      CDAlertView(title: NSLocalizedString("Sorry", comment: ""), message: errorStatement, type: .error).show()
        
     })
   }

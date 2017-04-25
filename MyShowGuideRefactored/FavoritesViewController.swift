@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import JSSAlertView
+import CDAlertView
 
 class FavoritesViewController: UITableViewController {
   
@@ -133,13 +133,7 @@ class FavoritesViewController: UITableViewController {
             self.favoriteShowsArray = savedShowsArray
         } else {
             SwiftSpinner.hide()
-          JSSAlertView().show(
-            self,
-            title: NSLocalizedString("Whoops?", comment: ""),
-            text: NSLocalizedString("There are no saved shows.", comment: ""),
-            buttonText: "Ok",
-            iconImage: MyShowGuideRefactoredLogo)
-
+   CDAlertView(title: NSLocalizedString("Whoops?", comment: ""), message: NSLocalizedString("There are no saved shows!", comment: ""), type: .error).show()
         }
     }
   

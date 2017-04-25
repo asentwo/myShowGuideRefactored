@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double JSSAlertViewVersionNumber;
-FOUNDATION_EXPORT const unsigned char JSSAlertViewVersionString[];
+FOUNDATION_EXPORT double CDAlertViewVersionNumber;
+FOUNDATION_EXPORT const unsigned char CDAlertViewVersionString[];
 

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import JSSAlertView
+import CDAlertView
 
 
 class NetworkManager: NSObject {
@@ -25,8 +25,8 @@ class NetworkManager: NSObject {
   
   func getJSONData(urlExtension: String, completion: @escaping JSONData) {
     
-    configuration.timeoutIntervalForRequest = 8
-    configuration.timeoutIntervalForResource = 8
+    configuration.timeoutIntervalForRequest = 10
+    configuration.timeoutIntervalForResource = 10
     
     let request = URLRequest(url: URL(string:"\(baseURL)\(urlExtension)")! )
     
@@ -44,8 +44,15 @@ class NetworkManager: NSObject {
           }
         }
       } else {
-        print("Error: \(error?.localizedDescription)")
+        
+        if let error = error {
+        print("Error: \(error.localizedDescription)")
+          DispatchQueue.main.async {
+                  CDAlertView(title: NSLocalizedString("Whoops?", comment: ""), message: NSLocalizedString("Error: \(error.localizedDescription)", comment: ""), type: .error).show()
+          }
+
         SwiftSpinner.hide()
+        }
       }
     })
     
@@ -64,6 +71,10 @@ class NetworkManager: NSObject {
         
       } catch let error as NSError {
         print("error processing json data: \(error.localizedDescription)")
+           DispatchQueue.main.async {
+        CDAlertView(title: NSLocalizedString("Whoops?", comment: ""), message: NSLocalizedString("Error: \(error.localizedDescription)", comment: ""), type: .error).show()
+              }
+        SwiftSpinner.hide()
       }
     }
     
@@ -95,7 +106,11 @@ class NetworkManager: NSObject {
         DispatchQueue.main.async {
           
           if let error = error {
-           print("There was an error connecting to itunes") }
+            print("Error: \(error.localizedDescription)")
+            CDAlertView(title: NSLocalizedString("Whoops?", comment: ""), message: NSLocalizedString("Error: \(error.localizedDescription)", comment: ""), type: .error).show()
+            SwiftSpinner.hide()
+
+          }
           return
         }
       }

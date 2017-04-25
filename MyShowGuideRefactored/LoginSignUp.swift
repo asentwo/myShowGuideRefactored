@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import JSSAlertView
+import CDAlertView
 
 class LoginSignUp: UIViewController, UITextFieldDelegate, UIViewControllerTransitioningDelegate {
   
@@ -120,12 +120,7 @@ class LoginSignUp: UIViewController, UITextFieldDelegate, UIViewControllerTransi
         }
         }
         SwiftSpinner.hide()
-        JSSAlertView().show(
-          self,
-          title: NSLocalizedString("Whoops?", comment: ""),
-          text: errorStatement,
-          buttonText: "Ok",
-          iconImage: MyShowGuideRefactoredLogo)
+    CDAlertView(title: NSLocalizedString("Sorry", comment: ""), message: errorStatement, type: .error).show()
         
         
         print("User failed to login: \(fault)")

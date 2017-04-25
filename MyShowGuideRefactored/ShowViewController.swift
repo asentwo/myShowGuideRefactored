@@ -6,7 +6,7 @@
 //  Copyright © 2015 Justin Doo. All rights reserved.
 //
 import UIKit
-import JSSAlertView
+import CDAlertView
 
 class ShowViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
   
@@ -160,12 +160,7 @@ class ShowViewController: UIViewController, UITableViewDataSource, UITableViewDe
     } catch {
       self.showSearchBar.isHidden = true
       self.favoritesToolBarButton.isEnabled = false
-      JSSAlertView().show(
-        self,
-        title: NSLocalizedString("Whoops?", comment: ""),
-        text: NSLocalizedString( "There was a connection error. Please try again.", comment: ""),
-        buttonText: "Ok",
-        iconImage: MyShowGuideRefactoredLogo)
+   CDAlertView(title: NSLocalizedString("Whoops?", comment: ""), message: NSLocalizedString("There was a connection error!", comment: ""), type: .error).show()
     }
     print(showArray.count)
     tvShowTableView.reloadData()
@@ -274,13 +269,8 @@ class ShowViewController: UIViewController, UITableViewDataSource, UITableViewDe
       performSegue(withIdentifier: "showToFavoritesSegue", sender: self)
     } else {
       
-      let alertView = JSSAlertView().show(
-        self,
-        title: NSLocalizedString("Whoops?", comment: ""),
-        text: NSLocalizedString( "Must sign up for an account to save favorite shows.", comment: ""),
-        buttonText: "Ok",
-        iconImage: MyShowGuideRefactoredLogo)
-      alertView.addAction(self.alertSignUpAction)
+    CDAlertView(title: NSLocalizedString("Whoops?", comment: ""), message: NSLocalizedString("Must sign up for an account to save favorite shows.", comment: ""), type: .error).show()
+
     }
   }
   
@@ -363,12 +353,7 @@ class ShowViewController: UIViewController, UITableViewDataSource, UITableViewDe
             )
           } else {
             sender.setImage(UIImage(named: "save_icon_white"), for: UIControlState())
-            JSSAlertView().show(
-              self,
-              title: NSLocalizedString("Whoops?", comment: ""),
-              text: NSLocalizedString( "You've reached the maximum amount of shows that can be saved.", comment: ""),
-              buttonText: "Ok",
-              iconImage: MyShowGuideRefactoredLogo)
+          CDAlertView(title: "Sorry", message: "You've reached the maximum amount of shows that can be saved.", type: .error).show()
             favoritesToolBarButton.isEnabled = true
           }
         }
@@ -424,24 +409,14 @@ class ShowViewController: UIViewController, UITableViewDataSource, UITableViewDe
             )
           } else {
             sender.setImage(UIImage(named: "save_icon_white"), for: UIControlState())
-            JSSAlertView().show(
-              self,
-              title: NSLocalizedString("Whoops?", comment: ""),
-              text: NSLocalizedString( "You've reached the maximum amount of shows that can be saved.", comment: ""),
-              buttonText: "Ok",
-              iconImage: MyShowGuideRefactoredLogo)
+          CDAlertView(title: "Sorry", message: "You've reached the maximum amount of shows that can be saved.", type: .error).show()
             favoritesToolBarButton.isEnabled = true
           }
         }
       }
     } else {
-      let alertView = JSSAlertView().show(
-        self,
-        title: NSLocalizedString("Whoops?", comment: ""),
-        text: NSLocalizedString( "Must sign up for an account to save favorite shows.", comment: ""),
-        buttonText: "Ok",
-        iconImage: MyShowGuideRefactoredLogo)
-      alertView.addAction(self.alertSignUpAction)
+  
+    CDAlertView(title: NSLocalizedString("Whoops?", comment: ""), message: NSLocalizedString("Must sign up for an account to save favorite shows.", comment: ""), type: .error).show()
       
       sender.setImage(UIImage(named: "save_icon_white"), for: UIControlState())
     }

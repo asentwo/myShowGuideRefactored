@@ -1,29 +1,29 @@
 PODS:
   - Backendless-ios-SDK (3.0.44)
+  - CDAlertView (0.6.0)
   - EXTView (0.1.0)
   - Gloss (1.2.4)
   - IQKeyboardManagerSwift (4.0.9)
-  - JSSAlertView (3.0.4)
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
 
 DEPENDENCIES:
   - Backendless-ios-SDK
+  - CDAlertView
   - EXTView
   - Gloss
   - IQKeyboardManagerSwift
-  - JSSAlertView
   - SDWebImage (~> 3.7.5)
 
 SPEC CHECKSUMS:
   Backendless-ios-SDK: 4f7bec980154a9371ad9ba7edbf53e02b33a76e3
+  CDAlertView: e6f365fa0fac7349197e7ea4bd7810c069215cf4
   EXTView: db5ded8520d2023cadb1b9225fb1ad9406064f04
   Gloss: 4e036074610fdb993abcb958ebcd7332588e2333
   IQKeyboardManagerSwift: 2eefe6c429b86aa08bfbc1b5c891164d754adf91
-  JSSAlertView: 7d8345c88e6fd8b515bc49f0fc8d8c69f6776b9c
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
 
-PODFILE CHECKSUM: 9113e5f3f0fa991e3291943c38f369a2cc2ac277
+PODFILE CHECKSUM: 5c4e3bb26c91b10e30bed66f39f777e4d863f502
 
 COCOAPODS: 1.2.0.beta.1
