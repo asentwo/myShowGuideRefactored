@@ -1071,14 +1071,13 @@
                                     <constraints>
                                         <constraint firstItem="7nK-wI-hh4" firstAttribute="width" secondItem="7nK-wI-hh4" secondAttribute="height" id="BnL-bX-M9H"/>
                                         <constraint firstItem="7nK-wI-hh4" firstAttribute="leading" relation="lessThanOrEqual" secondItem="83k-qg-pfR" secondAttribute="trailing" constant="49.5" id="DTn-bK-LTx"/>
+                                        <constraint firstItem="83k-qg-pfR" firstAttribute="centerY" secondItem="bwN-lx-MjG" secondAttribute="centerY" id="S58-Y5-vgs"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="bwN-lx-MjG" secondAttribute="bottom" constant="2" id="WxJ-sa-Azp"/>
                                         <constraint firstItem="bwN-lx-MjG" firstAttribute="top" secondItem="6IG-E1-K4s" secondAttribute="topMargin" constant="2" id="a0p-fu-mcC"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="83k-qg-pfR" secondAttribute="bottom" constant="3" id="a78-MG-piL"/>
                                         <constraint firstAttribute="trailing" secondItem="7nK-wI-hh4" secondAttribute="trailing" constant="10" id="j9v-pi-LeV"/>
                                         <constraint firstItem="83k-qg-pfR" firstAttribute="leading" secondItem="bwN-lx-MjG" secondAttribute="trailing" constant="10" id="q10-I1-vde"/>
                                         <constraint firstItem="7nK-wI-hh4" firstAttribute="centerY" secondItem="83k-qg-pfR" secondAttribute="centerY" id="s3R-At-sk3"/>
                                         <constraint firstItem="bwN-lx-MjG" firstAttribute="leading" secondItem="6IG-E1-K4s" secondAttribute="leading" constant="12" id="svn-CN-4XC"/>
-                                        <constraint firstItem="83k-qg-pfR" firstAttribute="top" secondItem="6IG-E1-K4s" secondAttribute="topMargin" constant="1.6699999999999999" id="vGl-Pe-MLR"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
